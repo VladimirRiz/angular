@@ -17,8 +17,14 @@
     (click)="onCreteServer()"
     >
     Create a new Server</button>
-<p>{{serverCreationStatus}}</p>
+<!-- <p>{{serverCreationStatus}}</p> -->
 <!-- <p [innerText]="allowNewServer"></p> -->
+<p *ngIf="serverCreated; else noServer">Server was created with name {{serverName}}</p>
+<ng-template #noServer>
+    <p>
+        No server was created! 
+    </p>
+</ng-template>
 <app-server></app-server>
 <hr>
 <input
